@@ -34,8 +34,8 @@ def load_data(database_filepath):
         category_names: list of names of categories
     '''
     # load data from database
-    engine = create_engine('sqlite:///'+database_filepath)
-    df = pd.read_sql_table('DisasterResponse', engine)
+    engine = create_engine('sqlite:///' + database_filepath)
+    df = pd.read_sql_table('Messages', engine)
     X = df['message']
     Y = df.iloc[:,4:]
     Y = Y.drop(['child_alone'], axis=1)
