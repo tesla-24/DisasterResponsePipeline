@@ -17,7 +17,6 @@ from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.multioutput import MultiOutputClassifier
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -39,7 +38,6 @@ def load_data(database_filepath):
     df = pd.read_sql_table('Messages', engine)
     X = df['message']
     Y = df.iloc[:,4:]
-    #Y = Y.drop(['child_alone'], axis=1)
     category_names = list(Y.columns)
     return X, Y, category_names
 
@@ -62,7 +60,7 @@ def build_model():
     
     parameters = {'vect__max_features': [None, 10, 50],
                   'tfidf__use_idf': [True, False],
-                  'clf__estimator__n_estimators': [10, 30, 50]}
+                  'clf__n_estimators': [10, 30, 50]}
     
     cv = GridSearchCV(pipeline, param_grid=parameters)
     
