@@ -9,7 +9,9 @@ def load_data(messages_filepath, categories_filepath):
     Load messages and categories dataset and return a merged dataset.
     Arguments:
         messages_filepath: str
+            filepath to load messages dataset
         categories_filepath: str
+            filepath to load categories dataset
     Returns:
         Merged pandas dataframe
     """
@@ -61,6 +63,14 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+    '''
+    Saves the dataframe in the dtabase
+    Parameters:
+        df : pandas DataFrame 
+            dataframe to be saved
+        database_filename : str
+            sqlite location to create engine
+    '''
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('Messages', engine, index=False, if_exists='replace') 
 
