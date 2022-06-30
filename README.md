@@ -30,6 +30,6 @@ The root contains three folders :
 
 ### Website Images
 1. Overview
-<img src="/resources/overview">
+<img src="https://github.com/tesla-24/DisasterResponsePipeline/blob/main/resources/overview.png">
 2. Message search response
-<img src="/resources/response">
+<img src="https://github.com/tesla-24/DisasterResponsePipeline/blob/main/resources/response.png">
